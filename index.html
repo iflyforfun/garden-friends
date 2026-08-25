@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Garden Friends Tycoon — a night-garden idle clicker by Joxi.">
+  <title>Garden Friends Tycoon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div class="atmosphere" aria-hidden="true">
+    <span class="firefly f1"></span>
+    <span class="firefly f2"></span>
+    <span class="firefly f3"></span>
+    <span class="firefly f4"></span>
+    <span class="firefly f5"></span>
+  </div>
+
+  <div class="main" id="main">
+    <header class="hero">
+      <p class="eyebrow">Idle clicker · Student project</p>
+      <h1>Garden Friends Tycoon</h1>
+      <p class="tagline">Grow a sleepy night garden. Plant friends, unlock critters, and watch the ecosystem tick.</p>
+    </header>
+
+    <section class="panel" aria-labelledby="sanctuary-heading">
+      <div class="panel-head">
+        <h2 id="sanctuary-heading">Sanctuary</h2>
+        <p>Your living collection</p>
+      </div>
+      <div class="scoreboard">
+        <article class="stat">
+          <span class="stat-icon" aria-hidden="true">🌱</span>
+          <p class="stat-label">Garden Friends</p>
+          <p class="stat-value" id="GardenFriendCount">0</p>
+        </article>
+        <article class="stat">
+          <span class="stat-icon" aria-hidden="true">🦋</span>
+          <p class="stat-label">Butterfly Friends</p>
+          <p class="stat-value" id="ButterflyFriendCount">0</p>
+        </article>
+        <article class="stat">
+          <span class="stat-icon" aria-hidden="true">🐞</span>
+          <p class="stat-label">Ladybug Friends</p>
+          <p class="stat-value" id="LadybugFriendCount">0</p>
+        </article>
+        <article class="stat">
+          <span class="stat-icon" aria-hidden="true">🏡</span>
+          <p class="stat-label">Bunny Houses</p>
+          <p class="stat-value" id="BunnyHouseCount">0</p>
+        </article>
+        <article class="stat">
+          <span class="stat-icon" aria-hidden="true">🐿️</span>
+          <p class="stat-label">Squirrel Friends</p>
+          <p class="stat-value" id="SquirrelFriendCount">0</p>
+        </article>
+        <article class="stat">
+          <span class="stat-icon" aria-hidden="true">🦔</span>
+          <p class="stat-label">Hedgehog Friends</p>
+          <p class="stat-value" id="HedgehogFriendCount">0</p>
+        </article>
+        <article class="stat">
+          <span class="stat-icon" aria-hidden="true">🪺</span>
+          <p class="stat-label">Bird Nests</p>
+          <p class="stat-value" id="BirdNestCount">0</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="shop-heading">
+      <div class="panel-head">
+        <h2 id="shop-heading">Moonlit Shop</h2>
+        <p>Spend garden friends to grow the food chain</p>
+      </div>
+      <div class="shop">
+        <div class="type featured">
+          <span class="type-icon" aria-hidden="true">🌱</span>
+          <h3>Garden Friends</h3>
+          <p class="type-desc">The heartbeat of the garden. Plant a patch every click.</p>
+          <p class="type-meta">+100 per click</p>
+          <button id="buttonGardenFriend" type="button" onclick="gardenFriendClick()">Plant Friends</button>
+          <span>Free to plant</span>
+        </div>
+        <div class="type">
+          <span class="type-icon" aria-hidden="true">🦋</span>
+          <h3>Butterfly Friends</h3>
+          <p class="type-desc">Night-bloom pollinators that grow the garden for you.</p>
+          <p class="type-meta">+1 garden friend / sec</p>
+          <button id="buttonButterflyFriend" type="button" onclick="butterflyFriendClick()" disabled>Invite Butterflies</button>
+          <span>Cost: 50 Garden Friends</span>
+        </div>
+        <div class="type">
+          <span class="type-icon" aria-hidden="true">🐞</span>
+          <h3>Ladybug Friends</h3>
+          <p class="type-desc">Tiny guardians that attract more butterflies.</p>
+          <p class="type-meta">+1 butterfly / sec</p>
+          <button id="buttonLadybugFriend" type="button" onclick="ladybugFriendClick()" disabled>Invite Ladybugs</button>
+          <span>Cost: 1,000 Garden Friends</span>
+        </div>
+        <div class="type">
+          <span class="type-icon" aria-hidden="true">🏡</span>
+          <h3>Bunny Houses</h3>
+          <p class="type-desc">Cozy burrows that keep ladybugs thriving.</p>
+          <p class="type-meta">+1 ladybug / sec</p>
+          <button id="buttonBunnyHouse" type="button" onclick="bunnyHouseClick()" disabled>Build a House</button>
+          <span>Cost: 10,000 Garden Friends</span>
+        </div>
+        <div class="type">
+          <span class="type-icon" aria-hidden="true">🐿️</span>
+          <h3>Squirrel Friends</h3>
+          <p class="type-desc">Busy planners who expand bunny housing.</p>
+          <p class="type-meta">+1 bunny house / sec</p>
+          <button id="buttonSquirrelFriend" type="button" onclick="squirrelFriendClick()" disabled>Invite Squirrels</button>
+          <span>Cost: 50,000 Garden Friends</span>
+        </div>
+        <div class="type">
+          <span class="type-icon" aria-hidden="true">🦔</span>
+          <h3>Hedgehog Friends</h3>
+          <p class="type-desc">Quiet night-walkers that bring squirrels along.</p>
+          <p class="type-meta">+1 squirrel / sec</p>
+          <button id="buttonHedgehogFriend" type="button" onclick="hedgehogFriendClick()" disabled>Invite Hedgehogs</button>
+          <span>Cost: 250,000 Garden Friends</span>
+        </div>
+        <div class="type">
+          <span class="type-icon" aria-hidden="true">🪺</span>
+          <h3>Bird Nests</h3>
+          <p class="type-desc">High-canopy homes that complete the chain.</p>
+          <p class="type-meta">+1 hedgehog / sec</p>
+          <button id="buttonBirdNest" type="button" onclick="birdNestClick()" disabled>Build a Nest</button>
+          <span>Cost: 1,000,000 Garden Friends</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>Built as a playful idle game — click, unlock, and let the garden run.</p>
+      <button id="buttonCheat" type="button" class="ghost" onclick="cheat()">Sandbox values</button>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+  <script>setInterval(start, 1000)</script>
+</body>
+
+</html>
